@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Dimensions 
 } from 'react-native';
 import React from 'react';
 import ImagePath from '../../constants/ImagePath';
@@ -18,6 +19,7 @@ import {
 } from 'react-native-responsive-screen';
 import {COLORS} from '../../constants/Index';
 const HomePage = () => {
+
   const data = [
     {
       id: 1,
@@ -87,6 +89,11 @@ const HomePage = () => {
     },
     // ...
   ];
+
+  const numColumns = 2;
+  const screenWidth = Dimensions.get('window').width;
+  // const itemWidth = screenWidth + numColumns;
+
   const renderItem = ({item}) => (
     <View>
       <View
@@ -264,7 +271,7 @@ const HomePage = () => {
             return (
               <TouchableOpacity style={{}}>
                 {/* <Text>{item.id}</Text> */}
-                <Image source={item?.img} style={styles.postImg} />
+                <Image source={item?.img} style={styles.postImg } />
               </TouchableOpacity>
             );
           })}
@@ -319,9 +326,9 @@ const styles = StyleSheet.create({
     zIndex: 0,
   },
   postImg: {
-    height: 125,
-    width: 125,
-    margin: 1,
+    height: 120,
+    width:115,
+    margin: 2,
     borderRadius: wp(5),
   },
   postContainer: {
@@ -347,3 +354,4 @@ const styles = StyleSheet.create({
     width: wp('80%'),
   },
 });
+0
